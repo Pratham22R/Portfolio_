@@ -1,11 +1,13 @@
 import { useState, useEffect, useMemo } from 'react';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const isMobile = useIsMobile();
 
   const navLinks = useMemo(() => [
     { name: 'Home', href: '#home' },
@@ -19,7 +21,9 @@ const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
-      const scrollPosition = window.scrollY + window.innerHeight / 2;
+      const scrollOffset = isMobile ? 80 : 100;
+      const scrollPosition = window.scrollY + scrollOffset;
+
       for (const link of navLinks) {
         const sectionId = link.href.substring(1);
         const section = document.getElementById(sectionId);
@@ -27,34 +31,38 @@ const Navbar = () => {
           const { offsetTop, offsetHeight } = section;
           if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
             setActiveSection(sectionId);
+            break;
           }
         }
       }
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check on mount
+
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [navLinks]);
+  }, [navLinks, isMobile]);
 
   return (
     <header
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 py-4 px-6 md:px-12 transition-all duration-500',
+        'fixed top-0 left-0 right-0 z-50 py-3 px-4 md:px-12 transition-all duration-500',
         isScrolled ? 'backdrop-blur-xl bg-background/80 border-b border-white/10 shadow-lg' : 'bg-transparent'
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
+        {/* Logo / Branding */}
         <a
           href="#home"
-          className="font-display text-2xl font-bold relative group"
+          className="font-display text-xl md:text-2xl font-bold relative group"
         >
           <span className="sr-only">Pratham Raghuvanshi</span>
           <span className="inline-block gradient-text">PR</span>
           <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-600 transition-all duration-300 group-hover:w-full"></span>
         </a>
 
-        {/* Desktop navigation */}
-        <nav className="hidden md:flex items-center space-x-10">
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex items-center space-x-6 lg:space-x-10">
           {navLinks.map((link) => {
             const isActive = activeSection === link.href.substring(1);
             return (
@@ -67,7 +75,6 @@ const Navbar = () => {
                 )}
               >
                 {link.name}
-                {/* Hover underline effect */}
                 <span
                   className={cn(
                     "absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-600 transition-all duration-300",
@@ -79,7 +86,7 @@ const Navbar = () => {
           })}
         </nav>
 
-        {/* Mobile menu button */}
+        {/* Mobile toggle button */}
         <button
           className="md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-background/20 backdrop-blur-lg hover:bg-background/40 transition-colors"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
