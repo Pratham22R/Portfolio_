@@ -56,10 +56,10 @@ const About = () => {
                 I’m a passionate fresher web developer with a strong foundation in full-stack development, backed by hands-on projects in AI and Salesforce.
               </p>
               <p className="hover:text-foreground transition-colors duration-300">
-                My skills span JavaScript, React, Node.js, MongoDB, Java, Apex, and Salesforce — allowing me to build secure, scalable, and user-friendly applications.
+                My skills span <span className="font-semibold opacity-100 text-white">JavaScript, React, Node.js, MongoDB, Java, Apex, and Salesforce </span>— allowing me to build secure, scalable, and user-friendly applications.
               </p>
               <p className="hover:text-foreground transition-colors duration-300">
-                I'm excited about crafting seamless experiences with modern tech stacks like Tailwind, Clerk, Drizzle ORM, and AI integrations using models like Gemini 2.0.
+                I'm excited about crafting seamless experiences with modern tech stacks like <span className="font-semibold opacity-100 text-white">Tailwind, Clerk, Drizzle ORM,</span> and AI integrations using models like Gemini 2.0.
               </p>
             </div>
 

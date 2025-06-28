@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { ArrowDown } from 'lucide-react';
+import { ArrowDown, Download } from 'lucide-react';
 import SocialLinks from './SocialLinks';
 import TechStackGrid from './TechStackGrid';
 import { cn } from '@/lib/utils';
@@ -48,6 +48,16 @@ const Hero = () => {
   useEffect(() => {
     setIsVisible(true);
   }, []);
+
+  const handleResumeDownload = () => {
+    // Create a temporary link to download the resume
+    const link = document.createElement('a');
+    link.href = '/pratham-raghuvanshi-resume.pdf'; // You'll need to add this file to public folder
+    link.download = 'Pratham_Raghuvanshi_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
     <section
@@ -116,14 +126,16 @@ const Hero = () => {
               </Button>
 
               <Button
-                asChild
+                onClick={handleResumeDownload}
                 variant="outline"
                 className="w-full sm:w-auto btn-hover px-4 md:px-6 py-4 md:py-6 h-auto rounded-full text-sm font-medium 
-                border border-purple-400/30 hover:border-purple-400/80 
-                hover:bg-purple-400/10 text-foreground transition-all duration-300 transform hover:scale-105"
+  border border-purple-400/30 hover:border-purple-400/80 
+  hover:bg-purple-400/10 text-foreground transition-all duration-300 transform hover:scale-105 flex items-center justify-center"
               >
-                <a href="#about">About Me</a>
+                <Download className="w-4 h-4 mr-2" />
+                Resume
               </Button>
+
             </div>
 
             {/* Socials */}
