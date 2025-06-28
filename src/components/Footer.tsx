@@ -10,7 +10,7 @@ const Footer = () => {
     "text-sm sm:text-base hover:text-blue-500 transition-colors duration-300 inline-block relative after:absolute after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-blue-500 after:to-purple-600 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300";
 
   return (
-    <footer id="contact" className="py-16 relative overflow-hidden">
+    <footer id="contact" className="py-14 sm:py-16 relative overflow-hidden">
       {/* Background Visuals */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute bottom-0 left-0 right-0 h-80 bg-gradient-to-t from-background/20 to-transparent" />
@@ -18,31 +18,32 @@ const Footer = () => {
         <div className="absolute top-1/3 left-1/3 w-80 h-80 rounded-full bg-purple-600/5 blur-3xl opacity-60" />
       </div>
 
-      {/* Animated Container */}
+      {/* Content Container */}
       <div
         ref={ref}
         className={cn(
-          "container px-4 max-w-6xl mx-auto transition-all duration-1000",
+          "container px-4 sm:px-6 md:px-8 max-w-6xl mx-auto transition-all duration-1000",
           isInView ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
         )}
       >
-        {/* Glass card */}
-        <div className="glass-card p-8 sm:p-10 md:p-12 rounded-3xl hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-500">
+        {/* Glass card wrapper */}
+        <div className="glass-card px-4 py-6 sm:p-8 md:p-10 lg:p-12 rounded-2xl sm:rounded-3xl hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-500">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
             {/* Left Section */}
             <div>
-              <h2 className="text-xl sm:text-2xl font-bold mb-4 gradient-text">
+              <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 gradient-text">
                 Let's Work Together
               </h2>
-              <p className="text-sm sm:text-base text-muted-foreground mb-6 hover:text-muted-foreground/80 transition-colors duration-300">
+
+              <p className="text-sm sm:text-base text-muted-foreground mb-6 hover:text-muted-foreground/80 transition-colors duration-300 leading-relaxed">
                 I'm currently available for freelance work and exciting opportunities.
                 Feel free to reach out if you have a project in mind or just want to connect.
               </p>
 
-              <div className="mb-8 group">
+              <div className="mb-8 group break-all">
                 <a
                   href="mailto:pratham2262003@gmail.com"
-                  className="text-base sm:text-lg font-medium text-foreground hover:text-blue-500 transition-colors relative"
+                  className="text-sm sm:text-base font-medium text-foreground hover:text-blue-500 transition-colors relative"
                   aria-label="Email Pratham"
                 >
                   pratham2262003@gmail.com
@@ -55,8 +56,8 @@ const Footer = () => {
 
             {/* Right Section - Quick Links */}
             <div>
-              <h3 className="text-xl font-semibold mb-4 gradient-text">Quick Links</h3>
-              <div className="grid grid-cols-2 gap-4">
+              <h3 className="text-lg sm:text-xl font-semibold mb-4 gradient-text">Quick Links</h3>
+              <div className="grid grid-cols-2 gap-4 sm:gap-6">
                 <ul className="space-y-2">
                   <li><a href="#home" className={linkClass}>Home</a></li>
                   <li><a href="#about" className={linkClass}>About</a></li>
@@ -75,15 +76,14 @@ const Footer = () => {
                 </ul>
               </div>
             </div>
-
           </div>
 
-          {/* Footer Bottom */}
-          <div className="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center">
+          {/* Bottom Strip */}
+          <div className="mt-10 sm:mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
             <p className="text-xs sm:text-sm text-muted-foreground">
               © {currentYear} Pratham Raghuvanshi. All Rights Reserved.
             </p>
-            <p className="text-xs sm:text-sm text-muted-foreground mt-4 md:mt-0">
+            <p className="text-xs sm:text-sm text-muted-foreground">
               Designed & Built with <span className="text-red-500">❤️</span>
             </p>
           </div>

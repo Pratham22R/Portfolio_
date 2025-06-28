@@ -44,7 +44,7 @@ const TechStackGrid = () => {
   }, []);
 
   return (
-    <div className="flex items-center justify-center h-full min-h-[400px] p-6">
+    <div className="flex items-center justify-center w-full min-h-[300px] p-4 sm:p-6">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl w-full">
         {techStack.map((tech, index) => {
           const isHovered = hoveredIndex === index;

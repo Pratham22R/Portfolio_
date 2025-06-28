@@ -21,17 +21,18 @@ const Hero = () => {
     'I build modernistic frontend designs',
   ];
 
+  // Cycle tagline visibility
   useEffect(() => {
-    const visibleDuration = 2500; // Show for 1.5s
-    const fadeDuration = 400; // Fade-out time
+    const visibleDuration = 2500;
+    const fadeDuration = 400;
 
     const visibleTimer = setTimeout(() => {
-      setShowTagline(false); // Start fade-out
+      setShowTagline(false);
     }, visibleDuration);
 
     const changeTimer = setTimeout(() => {
-      setTaglineIndex((prev) => (prev + 1) % taglines.length); // Next tagline
-      setShowTagline(true); // Show again
+      setTaglineIndex((prev) => (prev + 1) % taglines.length);
+      setShowTagline(true);
     }, visibleDuration + fadeDuration);
 
     return () => {
@@ -40,40 +41,22 @@ const Hero = () => {
     };
   }, [taglineIndex]);
 
-
-
+  // Typing hook (optional if you want to revert to animated typewriter later)
   const { displayText: typedTagline, isTyping, restart } = useTypewriter(taglines[taglineIndex], 70);
 
+  // Initial entrance animation
   useEffect(() => {
     setIsVisible(true);
   }, []);
-
-  // Effect to cycle through taglines
-  useEffect(() => {
-    if (!isTyping) {
-      // Wait for the message to be displayed for a bit before backspacing
-      const pauseTimeout = setTimeout(() => {
-        // Move to the next tagline
-        const nextIndex = (taglineIndex + 1) % taglines.length;
-        setTaglineIndex(nextIndex);
-        restart();
-      }, 2000);
-
-      return () => clearTimeout(pauseTimeout);
-    }
-  }, [isTyping, taglineIndex, restart, taglines.length]);
-
-  // Adjust taglines for mobile view
-  const mobileTaglines = taglines.map(tag => tag.length > 20 && isMobile ? tag.substring(0, 20) + '...' : tag);
-  const displayTagline = isMobile ? mobileTaglines[taglineIndex] : taglines[taglineIndex];
 
   return (
     <section
       id="home"
       ref={containerRef}
-      className="relative min-h-[calc(100vh-80px)] md:min-h-screen pt-20 flex flex-col justify-center items-center overflow-hidden"
+      className="relative min-h-[calc(100vh-80px)] md:min-h-screen pt-20 pb-20 md:pb-0 flex flex-col justify-center items-center overflow-hidden"
     >
-      {/* Enhanced background elements */}
+
+      {/* Background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-80 h-80 rounded-full bg-gradient-to-br from-purple-500/10 to-pink-500/5 blur-3xl opacity-60 animate-float" />
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-gradient-to-br from-blue-500/10 to-purple-500/5 blur-3xl opacity-60 animate-float animate-delay-500" />
@@ -81,7 +64,8 @@ const Hero = () => {
       </div>
 
       <div className="container px-4 max-w-6xl mx-auto rounded-3xl">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+          {/* Left side */}
           <div className={cn(
             "space-y-5 md:space-y-8 text-center lg:text-left transition-all duration-1000 transform",
             isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
@@ -115,19 +99,18 @@ const Hero = () => {
                 </div>
               </div>
 
-
               <p className="text-base md:text-lg lg:text-xl text-muted-foreground mt-4 max-w-lg mx-auto lg:mx-0 animate-fade-in animate-delay-200">
                 Creating meaningful and performant web applications with a focus on user experience and accessibility.
               </p>
             </div>
 
+            {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 animate-fade-in animate-delay-500">
               <Button
                 asChild
                 className="w-full sm:w-auto btn-hover btn-shimmer px-4 md:px-6 py-4 md:py-6 h-auto rounded-full text-sm font-medium 
-                          bg-gradient-to-r from-purple-400/90 to-pink-400/90 hover:from-purple-500/90 hover:to-pink-500/90 
-                          text-white font-medium transition-all duration-300 shadow-lg 
-                          hover:shadow-purple-500/25 transform hover:scale-105"
+                bg-gradient-to-r from-purple-400/90 to-pink-400/90 hover:from-purple-500/90 hover:to-pink-500/90 
+                text-white transition-all duration-300 shadow-lg hover:shadow-purple-500/25 transform hover:scale-105"
               >
                 <a href="#projects">View My Work</a>
               </Button>
@@ -136,21 +119,22 @@ const Hero = () => {
                 asChild
                 variant="outline"
                 className="w-full sm:w-auto btn-hover px-4 md:px-6 py-4 md:py-6 h-auto rounded-full text-sm font-medium 
-                          border border-purple-400/30 hover:border-purple-400/80 
-                          hover:bg-purple-400/10 text-foreground transition-all duration-300 
-                          transform hover:scale-105"
+                border border-purple-400/30 hover:border-purple-400/80 
+                hover:bg-purple-400/10 text-foreground transition-all duration-300 transform hover:scale-105"
               >
                 <a href="#about">About Me</a>
               </Button>
             </div>
 
+            {/* Socials */}
             <div className="flex justify-center lg:justify-start animate-fade-in animate-delay-600">
               <SocialLinks iconSize={20} />
             </div>
           </div>
 
+          {/* Right side (TechStack) - only visible on md and up */}
           <div className={cn(
-            "transition-all duration-1000 transform h-full min-h-[300px]",
+            "transition-all duration-1000 transform h-full min-h-[300px] hidden md:block",
             isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
           )}>
             <TechStackGrid />
@@ -158,7 +142,8 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      {/* Scroll down icon */}
+      <div className="w-full flex justify-center animate-bounce absolute bottom-5 md:bottom-8 z-20">
         <a
           href="#about"
           className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full glass hover:bg-white/20 transition-all duration-300 pulse-glow"
@@ -167,6 +152,7 @@ const Hero = () => {
           <ArrowDown className="w-4 h-4 md:w-5 md:h-5" />
         </a>
       </div>
+
     </section>
   );
 };
