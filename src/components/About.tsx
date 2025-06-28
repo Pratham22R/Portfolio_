@@ -5,16 +5,16 @@ const About = () => {
   const { ref, isInView } = useInView();
 
   const stats = [
-    { label: 'Years Experience', value: 'Fresher' },
-    { label: 'Projects Completed', value: '4+' },
+    { label: 'Projects', value: '3+' },
     { label: 'Technologies', value: '12+' },
   ];
 
   return (
     <section id="about" className="py-16 md:py-24 relative overflow-hidden">
+      {/* Background gradients */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 right-1/4 w-80 h-80 rounded-full bg-blue-600/5 blur-3xl opacity-60" />
-        <div className="absolute bottom-1/4 left-1/4 w-80 h-80 rounded-full bg-purple-600/5 blur-3xl opacity-60" />
+        <div className="absolute top-1/4 right-1/4 w-80 h-80 rounded-full bg-blue-600/10 blur-3xl opacity-60" />
+        <div className="absolute bottom-1/4 left-1/4 w-80 h-80 rounded-full bg-purple-600/10 blur-3xl opacity-60" />
       </div>
 
       <div className="container px-4 max-w-6xl mx-auto">
@@ -27,42 +27,43 @@ const About = () => {
           ref={ref}
           className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center"
         >
+          {/* Left – Profile Image */}
           <div className={cn(
             "transition-all duration-1000 transform",
             isInView ? "translate-x-0 opacity-100" : "-translate-x-12 opacity-0"
           )}>
-            <div className="aspect-square rounded-full p-4 bg-gradient-to-br from-blue-900/30 to-purple-900/30 transition-all duration-500 group ring-4 ring-purple-500/40 ring-offset-2 ring-offset-black shadow-xl shadow-purple-500/10">
+            <div className="aspect-square rounded-full p-4 bg-gradient-to-br from-blue-900/30 to-purple-900/30 group ring-4 ring-purple-500/40 ring-offset-2 ring-offset-black shadow-xl shadow-purple-500/10">
               <div className="w-full h-full rounded-full overflow-hidden relative">
                 <img
                   src="/profile.jpeg"
                   alt="Profile"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600/10 to-purple-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600/10 to-purple-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
             </div>
           </div>
 
+          {/* Right – Bio + Stats */}
           <div className={cn(
             "space-y-4 md:space-y-6 transition-all duration-1000 transform",
             isInView ? "translate-x-0 opacity-100" : "translate-x-12 opacity-0"
           )}>
-            <h3 className="text-xl md:text-2xl font-semibold gradient-text">Web Developer & Designer based in Noida</h3>
+            <h3 className="text-xl md:text-2xl font-semibold gradient-text">Aspiring Web Developer | Full-Stack & AI-Driven Apps</h3>
 
             <div className="space-y-3 md:space-y-4 text-sm md:text-base text-muted-foreground">
               <p className="hover:text-foreground transition-colors duration-300">
-                I'm a passionate web developer specializing in creating immersive digital experiences that combine cutting-edge technology with thoughtful design.
+                I’m a passionate fresher web developer with a strong foundation in full-stack development, backed by hands-on projects in AI and Salesforce.
               </p>
-
               <p className="hover:text-foreground transition-colors duration-300">
-                With expertise in frontend development, Backend Development and AI integration, I build websites that don't just meet requirements but exceed expectations by creating memorable user experiences.
+                My skills span JavaScript, React, Node.js, MongoDB, Java, Apex, and Salesforce — allowing me to build secure, scalable, and user-friendly applications.
               </p>
-
               <p className="hover:text-foreground transition-colors duration-300">
-                My approach combines clean, efficient code with an eye for design and a focus on performance, accessibility, and user engagement.
+                I'm excited about crafting seamless experiences with modern tech stacks like Tailwind, Clerk, Drizzle ORM, and AI integrations using models like Gemini 2.0.
               </p>
             </div>
 
+            {/* Stats */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4 pt-4">
               {stats.map((stat, index) => (
                 <div

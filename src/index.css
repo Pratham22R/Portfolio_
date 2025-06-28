@@ -25,21 +25,65 @@
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
   }
+
+  .light {
+  --background: 0 0% 98%;
+  --foreground: 240 5% 15%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 240 5% 15%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 5% 15%;
+
+  --primary: 252.1 81.8% 60.6%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 240 5% 95%;
+  --secondary-foreground: 240 5% 25%;
+
+  --muted: 240 4.8% 94%;
+  --muted-foreground: 240 4% 50%;
+
+  --accent: 240 4.8% 94%;
+  --accent-foreground: 240 5% 25%;
+
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+
+  --border: 240 6% 85%;
+  --input: 240 6% 85%;
+  --ring: 240 5% 40%;
+}
+
 }
 
 @layer base {
   * {
     @apply border-border;
   }
+  
+  html {
+    @apply scroll-smooth;
+  }
+  
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
+  
   .container {
     @apply rounded-3xl;
   }
+  
   .card {
     @apply rounded-3xl;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight;
   }
 }
 
@@ -71,12 +115,27 @@
   }
 }
 
+@keyframes slide-up {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
 
 .animate-pulse-subtle {
   animation: pulse-subtle 4s ease-in-out infinite;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.6s ease-out;
 }
 
 .animate-delay-300 {
@@ -98,9 +157,28 @@
   border-radius: 1.5rem;
 }
 
+.light {
+  background: #f9fafb; /* Soft neutral, no harsh gradient */
+}
+
+.light .glass {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.light .glass-card,
+.light .card {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
 /* Gradient text */
 .gradient-text {
   @apply bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500;
+}
+
+.light .gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600;
 }
 
 /* Custom button effects */
@@ -130,6 +208,10 @@
 .pulse-glow {
   box-shadow: 0 0 8px 0 rgba(147, 51, 234, 0.3);
   animation: pulse-glow 2.5s infinite alternate;
+}
+
+.light .pulse-glow {
+  box-shadow: 0 0 8px 0 rgba(147, 51, 234, 0.4);
 }
 
 @keyframes pulse-glow {
@@ -179,3 +261,64 @@
   text-overflow: ellipsis;
 }
 
+/* Responsive glass cards */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+
+.light .glass-card {
+  background: rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+
+/* Light mode improvements */
+.light {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
+}
+
+.light .btn-shimmer::after {
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.05) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+/* Responsive spacing utility classes */
+@media (max-width: 640px) {
+  .section-spacing {
+    @apply py-8;
+  }
+  
+  .container {
+    @apply px-4;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1023px) {
+  .section-spacing {
+    @apply py-12;
+  }
+  
+  .container {
+    @apply px-6;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-spacing {
+    @apply py-16;
+  }
+  
+  .container {
+    @apply px-8;
+  }
+}
