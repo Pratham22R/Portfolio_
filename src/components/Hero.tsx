@@ -16,9 +16,9 @@ const Hero = () => {
   const [showTagline, setShowTagline] = useState(true);
 
   const taglines = [
-    'I build digital experiences',
     'I build full stack modern web applications',
-    'I build modernistic frontend designs',
+    'Profficient in JavaScript, React, Node.js, and MongoDB',
+    'I build modernistic UI/UX experiences with React and Next.js',
   ];
 
   // Cycle tagline visibility
