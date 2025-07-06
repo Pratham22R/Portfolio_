@@ -32,6 +32,19 @@ const projects = [
     repoUrl: "https://github.com/Pratham22R/wanderlust_website.git"
   },
   {
+    title: "IntriAi",
+    description: "An AI-powered interior redesign assistant that transforms room photos into stylish interiors using generative AI.",
+    image: "/Screenshot 2025-07-05 151104.png", // make sure you add this image in your public folder
+    technologies: [
+      { name: "Next.js", icon: <Code size={16} className="text-white" /> },
+      { name: "TailwindCSS", icon: <Wind size={16} className="text-cyan-400" /> },
+      { name: "Firebase", icon: <Database size={16} className="text-orange-400" /> },
+      { name: "Replicate API", icon: <Brain size={16} className="text-green-500" /> }
+    ],
+    liveUrl: "https://intriai.vercel.app/",
+    repoUrl: "https://github.com/Pratham22R/Ai-Interior-design" // replace with actual repo if available
+  },
+  {
     title: "HealthWise Prediction System",
     description: "A health prediction system that uses machine learning to predict diseases based on user input",
     image: "/Healthwise.png",
@@ -43,18 +56,6 @@ const projects = [
     ],
     liveUrl: "#",
     repoUrl: "#"
-  },
-  {
-    title: "Weather prediction app",
-    description: "A weather prediction app that provides real-time weather updates and forecasts",
-    image: "/weatherforecast.png",
-    technologies: [
-      { name: "React", icon: <Atom size={16} className="text-cyan-400" /> },
-      { name: "Material UI", icon: <LayoutTemplate size={16} className="text-green-500" /> },
-      { name: "Openweathermap-API", icon: <CloudSun size={16} className="text-pink-500" /> }
-    ],
-    liveUrl: "https://github.com/Pratham22R/Weather_forecat.git",
-    repoUrl: "https://github.com/Pratham22R/Weather_forecat.git"
   },
   {
     title: "Dine-in Menu Mnagement System",

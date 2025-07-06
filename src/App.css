@@ -40,3 +40,13 @@
 .read-the-docs {
   color: #888;
 }
+.gradient-text {
+  background: linear-gradient(to right, #c084fc, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+@media (prefers-color-scheme: dark) {
+  .gradient-text {
+    background: linear-gradient(to right, #a855f7, #ec4899);
+  }
+}

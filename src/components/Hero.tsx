@@ -41,18 +41,15 @@ const Hero = () => {
     };
   }, [taglineIndex]);
 
-  // Typing hook (optional if you want to revert to animated typewriter later)
   const { displayText: typedTagline, isTyping, restart } = useTypewriter(taglines[taglineIndex], 70);
 
-  // Initial entrance animation
   useEffect(() => {
     setIsVisible(true);
   }, []);
 
   const handleResumeDownload = () => {
-    // Create a temporary link to download the resume
     const link = document.createElement('a');
-    link.href = '/pratham-raghuvanshi-resume.pdf'; // You'll need to add this file to public folder
+    link.href = '/PrathamRaghuvanshiResume.pdf';
     link.download = 'Pratham_Raghuvanshi_Resume.pdf';
     document.body.appendChild(link);
     link.click();
@@ -73,14 +70,14 @@ const Hero = () => {
         <div className="absolute top-1/2 left-1/2 w-40 h-40 rounded-full bg-gradient-to-br from-indigo-500/10 to-purple-500/5 blur-2xl opacity-40 animate-pulse-subtle" />
       </div>
 
-      <div className="container px-4 max-w-6xl mx-auto rounded-3xl">
+      <div className="container px-4 max-w-6xl mx-auto rounded-3xl justify-evenly">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Left side */}
           <div className={cn(
             "space-y-5 md:space-y-8 text-center lg:text-left transition-all duration-1000 transform",
             isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
           )}>
-            <div className="space-y-2">
+            <div className="space-y-2 justify-evenly">
               <p className="text-sm md:text-base font-medium text-muted-foreground animate-fade-in">
                 <span className="inline-block px-3 py-1 rounded-full glass text-xs font-semibold animate-fade-in animate-delay-300 border border-white/10 hover:border-purple-500/20 transition-all shadow-md shadow-purple-500/10">
                   Aspiring Full Stack Web Developer
@@ -91,7 +88,7 @@ const Hero = () => {
                 Hey, I'm <span className="gradient-text">Pratham Raghuvanshi</span>,
               </h1>
 
-              <div className="text-lg md:text-xl lg:text-3xl font-bold leading-tight tracking-tight">
+              <div className="mt-8 text-lg md:text-xl lg:text-3xl font-bold leading-tight tracking-tight">
                 <div className="inline-flex items-center justify-center lg:justify-start h-12">
                   <span
                     key={taglineIndex}

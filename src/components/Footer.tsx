@@ -66,7 +66,7 @@ const Footer = () => {
                   <li><a href="#skills" className={linkClass}>Skills</a></li>
                   <li>
                     <a
-                      href="/PrathamRaghuvanshiResume (1).pdf"
+                      href="/PrathamRaghuvanshiResume.pdf"
                       download
                       className={linkClass}
                     >

@@ -20,9 +20,8 @@ const Navbar = () => {
   ];
 
   const handleResumeDownload = () => {
-    // Create a temporary link to download the resume
     const link = document.createElement('a');
-    link.href = '/pratham-raghuvanshi-resume.pdf'; // You'll need to add this file to public folder
+    link.href = '/PrathamRaghuvanshiResume.pdf'; 
     link.download = 'Pratham_Raghuvanshi_Resume.pdf';
     document.body.appendChild(link);
     link.click();
@@ -32,10 +31,8 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
-
-      // Update active section based on scroll position
       const sections = navLinks.map(link => link.href.substring(1));
-      const scrollPosition = window.scrollY + (isMobile ? 80 : 100); // Adjust offset based on device
+      const scrollPosition = window.scrollY + (isMobile ? 80 : 100); 
 
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -50,8 +47,6 @@ const Navbar = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-
-    // Initial call to set correct section on page load
     handleScroll();
 
     return () => {
