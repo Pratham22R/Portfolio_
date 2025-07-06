@@ -21,7 +21,7 @@ const Navbar = () => {
 
   const handleResumeDownload = () => {
     const link = document.createElement('a');
-    link.href = '/PrathamRaghuvanshiResume.pdf'; 
+    link.href = '/PrathamRaghuvanshiResume.pdf';
     link.download = 'Pratham_Raghuvanshi_Resume.pdf';
     document.body.appendChild(link);
     link.click();
@@ -32,7 +32,7 @@ const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
       const sections = navLinks.map(link => link.href.substring(1));
-      const scrollPosition = window.scrollY + (isMobile ? 80 : 100); 
+      const scrollPosition = window.scrollY + (isMobile ? 80 : 100);
 
       for (const section of sections) {
         const element = document.getElementById(section);
