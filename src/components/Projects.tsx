@@ -1,9 +1,14 @@
-import { useInView } from '@/lib/animations';
-import { cn } from '@/lib/utils';
+import { useInView } from "@/lib/animations";
+import { cn } from "@/lib/utils";
 import {
-  ExternalLink, Github,
-  Layers, Code, Database,
-  Globe, Server, FileCode,
+  ExternalLink,
+  Github,
+  Layers,
+  Code,
+  Database,
+  Globe,
+  Server,
+  FileCode,
   Atom,
   Brain,
   CloudSun,
@@ -11,68 +16,150 @@ import {
   LayoutTemplate,
   PanelTopClose,
   Split,
-  Wind
-} from 'lucide-react';
-import { useState } from 'react';
-import { Button } from './ui/button';
+  Wind,
+  LayoutPanelTop,
+  Shield,
+  Workflow,
+  ChartLine,
+  Mail,
+  Video,
+  Code2Icon,
+} from "lucide-react";
+import { useState } from "react";
+import { Button } from "./ui/button";
 
 const projects = [
   {
-    title: "Wanderlust: Travel Planner",
-    description: "A travel planning app that helps users create itineraries, find attractions, and share experiences",
-    image: "/Wanderlust.png",
+    title: "Wanderlust - Property Listing And Reservation App",
+    description:
+      "Property listing and reservation web application enabling users to browse, list, and book properties seamlessly.",
+    image: "/wanderlustposter.png",
     technologies: [
-      { name: "MongoDB", icon: <Database size={16} className="text-blue-400" /> },
+      {
+        name: "MongoDB",
+        icon: <Database size={16} className="text-blue-400" />,
+      },
       { name: "Express", icon: <Split size={16} className="text-green-400" /> },
-      { name: "Node.js", icon: <Server size={16} className="text-green-500" /> },
+      {
+        name: "Node.js",
+        icon: <Server size={16} className="text-green-500" />,
+      },
       { name: "EJS", icon: <FileCode size={16} className="text-red-400" /> },
-      { name: "Bootstrap", icon: <LayoutTemplate size={16} className="text-red-400" /> },
+      {
+        name: "Bootstrap",
+        icon: <LayoutTemplate size={16} className="text-red-400" />,
+      },
     ],
-    liveUrl: "https://wanderlust-webs-84qr.onrender.com/listings",
-    repoUrl: "https://github.com/Pratham22R/wanderlust_website.git"
+    liveUrl: "https://wanderlust-webs-84qr.onrender.com",
+    repoUrl: "https://github.com/Pratham22R/wanderlust_website.git",
   },
   {
-    title: "IntriAi",
-    description: "An AI-powered interior redesign assistant that transforms room photos into stylish interiors using generative AI.",
-    image: "/Screenshot 2025-07-05 151104.png", // make sure you add this image in your public folder
+    title: "IntriAi – AI-Powered Interior Redesign Assistant",
+    description:
+      "An AI-powered interior redesign assistant that transforms room photos into stylish interiors using generative AI.",
+    image: "/intriaiposter.png",
     technologies: [
       { name: "Next.js", icon: <Code size={16} className="text-white" /> },
-      { name: "TailwindCSS", icon: <Wind size={16} className="text-cyan-400" /> },
-      { name: "Firebase", icon: <Database size={16} className="text-orange-400" /> },
-      { name: "Replicate API", icon: <Brain size={16} className="text-green-500" /> }
+      {
+        name: "TailwindCSS",
+        icon: <Wind size={16} className="text-cyan-400" />,
+      },
+      {
+        name: "Firebase",
+        icon: <Database size={16} className="text-orange-400" />,
+      },
+      {
+        name: "Replicate API",
+        icon: <Brain size={16} className="text-green-500" />,
+      },
     ],
     liveUrl: "https://intriai.vercel.app/",
-    repoUrl: "https://github.com/Pratham22R/Ai-Interior-design" // replace with actual repo if available
+    repoUrl: "https://github.com/Pratham22R/Ai-Interior-design",
   },
   {
-    title: "HealthWise Prediction System",
-    description: "A health prediction system that uses machine learning to predict diseases based on user input",
-    image: "/Healthwise.png",
+    title: "EvalMeet – Technical Interview Platform",
+    description:
+      "A real-time technical interview platform with integrated video calling, live coding IDE, interview scheduling, evaluations, and session recordings.",
+    image: "/evalmeetposter.png",
     technologies: [
-      { name: "Reactjs", icon: <Atom size={16} className="text-white" /> },
-      { name: "TailwindCSS", icon: <Wind size={16} className="text-cyan-400" /> },
-      { name: "Custom ML model", icon: <Brain size={16} className="text-green-500" /> },
-      { name: "Flask", icon: <FlaskConical size={16} className="text-emerald-500" /> }
+      { name: "Next.js", icon: <Layers size={16} className="text-white" /> },
+      {
+        name: "TailwindCSS",
+        icon: <Wind size={16} className="text-cyan-400" />,
+      },
+      {
+        name: "Shadcn/UI",
+        icon: <LayoutPanelTop size={16} className="text-purple-400" />,
+      },
+      {
+        name: "Clerk Auth",
+        icon: <Shield size={16} className="text-emerald-400" />,
+      },
+      {
+        name: "Stream Video API",
+        icon: <Video size={16} className="text-red-400" />,
+      },
+      {
+        name: "Monaco Editor",
+        icon: <Code2Icon size={16} className="text-blue-400" />,
+      },
+      {
+        name: "Convex Backend",
+        icon: <Server size={16} className="text-orange-400" />,
+      },
+      {
+        name: "Postgres",
+        icon: <Database size={16} className="text-green-500" />,
+      },
     ],
-    liveUrl: "#",
-    repoUrl: "#"
+    liveUrl: "https://evalmeet.vercel.app/",
+    repoUrl: "https://github.com/Pratham22R/EvalMeet.git",
   },
   {
-    title: "Dine-in Menu Mnagement System",
-    description: "A web application for managing restaurant menus, orders, and customer interactions",
-    image: "/dinein.png",
+    title: "Signalist – Stock Tracker App",
+    description:
+      "A modern stock tracking platform with secure authentication, watchlists, real-time market data, and automated workflows powered by Inngest.",
+    image: "/signalistposter.png",
     technologies: [
-      { name: "React", icon: <Atom size={16} className="text-white" /> },
-      { name: "ShadCN UI", icon: <PanelTopClose size={16} className="text-purple-400" /> },
-      { name: "Supabase", icon: <Database size={16} className="text-green-400" /> },
+      { name: "Next.js", icon: <Layers size={16} className="text-white" /> },
+      {
+        name: "TailwindCSS",
+        icon: <Wind size={16} className="text-cyan-400" />,
+      },
+      {
+        name: "Shadcn/UI",
+        icon: <LayoutPanelTop size={16} className="text-purple-400" />,
+      },
+      {
+        name: "Better Auth",
+        icon: <Shield size={16} className="text-emerald-400" />,
+      },
+      {
+        name: "MongoDB",
+        icon: <Database size={16} className="text-green-500" />,
+      },
+      {
+        name: "Inngest",
+        icon: <Workflow size={16} className="text-blue-400" />,
+      },
+      {
+        name: "Finnhub API",
+        icon: <ChartLine size={16} className="text-yellow-400" />,
+      },
+      { name: "Nodemailer", icon: <Mail size={16} className="text-red-400" /> },
     ],
-    liveUrl: "#",
-    repoUrl: "#"
-  }
+    liveUrl: "https://signalist-dev.vercel.app/",
+    repoUrl: "https://github.com/Pratham22R/Stock_Tracker_App",
+  },
 ];
 
-
-const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: number }) => {
+const ProjectCard = ({
+  project,
+  index,
+}: {
+  project: (typeof projects)[0];
+  index: number;
+}) => {
   const { ref, isInView } = useInView();
   const [isHovered, setIsHovered] = useState(false);
 
@@ -91,7 +178,7 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: n
         <div
           className="absolute inset-0 w-full h-full transition-transform duration-700 ease-out overflow-hidden rounded-t-2xl"
           style={{
-            transform: isHovered ? 'scale(1.05)' : 'scale(1)',
+            transform: isHovered ? "scale(1.05)" : "scale(1)",
           }}
         >
           <img
@@ -101,19 +188,27 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: n
           />
         </div>
 
-        <div className={cn(
-          "absolute inset-0 bg-gradient-to-t from-background/95 to-transparent flex items-end p-6 transition-opacity duration-500",
-          isHovered ? "opacity-100" : "opacity-0"
-        )}>
+        <div
+          className={cn(
+            "absolute inset-0 bg-gradient-to-t from-background/95 to-transparent flex items-end p-6 transition-opacity duration-500",
+            isHovered ? "opacity-100" : "opacity-0"
+          )}
+        >
           <div className="w-full">
-            <h3 className="text-xl font-semibold mb-2 gradient-text">{project.title}</h3>
-            <p className="text-sm text-muted-foreground line-clamp-2">{project.description}</p>
+            <h3 className="text-xl font-semibold mb-2 gradient-text">
+              {project.title}
+            </h3>
+            <p className="text-sm text-muted-foreground line-clamp-2">
+              {project.description}
+            </p>
           </div>
         </div>
       </div>
 
       <div className="p-6">
-        <h3 className="text-xl font-semibold mb-2 group-hover:gradient-text transition-all duration-300">{project.title}</h3>
+        <h3 className="text-xl font-semibold mb-2 group-hover:gradient-text transition-all duration-300">
+          {project.title}
+        </h3>
         <div className="flex flex-wrap gap-2 mb-4">
           {project.technologies.map((tech) => (
             <span
@@ -176,7 +271,9 @@ const Projects = () => {
 
       <div className="container px-4 max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold gradient-text">Featured Projects</h2>
+          <h2 className="text-3xl md:text-4xl font-bold gradient-text">
+            Featured Projects
+          </h2>
           <div className="mt-2 h-1 w-20 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full" />
           <p
             ref={ref}
@@ -185,7 +282,8 @@ const Projects = () => {
               isInView ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
             )}
           >
-            A collection of my recent work showcasing web development and 3D interactive experiences.
+            A collection of my recent work showcasing web development and 3D
+            interactive experiences.
           </p>
         </div>
 

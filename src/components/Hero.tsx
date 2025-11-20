@@ -106,9 +106,9 @@ const Hero = () => {
                 </div>
               </div>
 
-              <p className="text-base md:text-lg lg:text-xl text-muted-foreground mt-4 max-w-lg mx-auto lg:mx-0 animate-fade-in animate-delay-200">
+              {/* <p className="text-base md:text-lg lg:text-xl text-muted-foreground mt-4 max-w-lg mx-auto lg:mx-0 animate-fade-in animate-delay-200">
                 Creating meaningful and performant web applications with a focus on user experience and accessibility.
-              </p>
+              </p> */}
             </div>
 
             {/* CTA Buttons */}
