@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Menu, X, Moon, Sun, Download } from 'lucide-react';
+import { Menu, X, Moon, Sun, ExternalLink } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Button } from './ui/button';
@@ -19,13 +19,8 @@ const Navbar = () => {
     { name: 'Contact', href: '#contact' }
   ];
 
-  const handleResumeDownload = () => {
-    const link = document.createElement('a');
-    link.href = '/PrathamRaghuvanshiResume.pdf';
-    link.download = 'Pratham_Raghuvanshi_Resume.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  const handleResumeView = () => {
+    window.open('/resume.html', '_blank', 'noopener,noreferrer');
   };
 
   useEffect(() => {
@@ -98,12 +93,12 @@ const Navbar = () => {
         {/* Desktop right side controls */}
         <div className="hidden md:flex items-center space-x-4">
           <Button
-            onClick={handleResumeDownload}
+            onClick={handleResumeView}
             className="bg-gradient-to-r from-pink-400 to-purple-500 hover:from-pink-500 hover:to-purple-600 
                        text-white font-medium px-4 py-2 rounded-full transition-all duration-300 
                        hover:shadow-lg hover:shadow-purple-500/25 transform hover:scale-105"
           >
-            <Download className="w-4 h-4 mr-2" />
+            <ExternalLink className="w-4 h-4 mr-2" />
             Resume
           </Button>
 
@@ -147,13 +142,13 @@ const Navbar = () => {
             <div className="flex items-center justify-between pt-2 mt-2 border-t border-white/10">
               <Button
                 onClick={() => {
-                  handleResumeDownload();
+                  handleResumeView();
                   setIsMobileMenuOpen(false);
                 }}
                 className="flex-1 bg-gradient-to-r from-pink-400 to-purple-500 hover:from-pink-500 hover:to-purple-600 
                            text-white font-medium px-4 py-2 rounded-full transition-all duration-300 mr-3"
               >
-                <Download className="w-4 h-4 mr-2" />
+                <ExternalLink className="w-4 h-4 mr-2" />
                 Resume
               </Button>
 

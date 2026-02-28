@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { ArrowDown, Download } from 'lucide-react';
+import { ArrowDown, ExternalLink } from 'lucide-react';
 import SocialLinks from './SocialLinks';
 import TechStackGrid from './TechStackGrid';
 import { cn } from '@/lib/utils';
@@ -47,13 +47,8 @@ const Hero = () => {
     setIsVisible(true);
   }, []);
 
-  const handleResumeDownload = () => {
-    const link = document.createElement('a');
-    link.href = '/PrathamRaghuvanshiResume.pdf';
-    link.download = 'Pratham_Raghuvanshi_Resume.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  const handleResumeView = () => {
+    window.open('/resume.html', '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -123,13 +118,13 @@ const Hero = () => {
               </Button>
 
               <Button
-                onClick={handleResumeDownload}
+                onClick={handleResumeView}
                 variant="outline"
                 className="w-full sm:w-auto btn-hover px-4 md:px-6 py-4 md:py-6 h-auto rounded-full text-sm font-medium 
   border border-purple-400/30 hover:border-purple-400/80 
   hover:bg-purple-400/10 text-foreground transition-all duration-300 transform hover:scale-105 flex items-center justify-center"
               >
-                <Download className="w-4 h-4 mr-2" />
+                <ExternalLink className="w-4 h-4 mr-2" />
                 Resume
               </Button>
 
