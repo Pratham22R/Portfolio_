@@ -5,10 +5,10 @@
 This repository contains my personal portfolio website, designed to showcase my skills, projects, and professional experience as a Full Stack Web Developer. Built with an emphasis on modern UI/UX principles, the portfolio features engaging animations, dynamic 3D elements, and a clean, industry-standard aesthetic.
 
 ## Live Demo & Resources
-1. **Live Site**: [prathamraghuvanshi.com](#) *(Add actual link if deployed)*
-2. **My Resume**: [View PDF (`/resume.html`)](https://github.com/Pratham22R/Portfolio_/blob/main/public/PrathamRaghuvanshiResume.pdf)
-3. **LinkedIn**: [linkedin.com/in/pratham-raghuvanshi](#) *(Update with your actual LinkedIn)*
-4. **GitHub**: [github.com/Pratham22R](https://github.com/Pratham22R)
+1. **Live Site**: [Portfolio](https://pratham-portfolio-op6k.onrender.com/)
+2. **My Resume**: [View PDF](https://github.com/Pratham22R/Portfolio_/blob/main/public/PrathamRaghuvanshiResume.pdf)
+3. **LinkedIn**: [LinkedIn](https://www.linkedin.com/in/pratham-raghuvanshi/)
+4. **GitHub**: [GitHub](https://github.com/Pratham22R)
 
 ---
 
@@ -90,8 +90,10 @@ Make sure you have [Node.js](https://nodejs.org/) (v16 or higher) and `npm` inst
 
 I am actively seeking Full Stack Web Development opportunities. Whether you have a project in mind, an opportunity to discuss, or just want to say hi, feel free to reach out to me!
 
-**Email**: pratham2262003@gmail.com
-**LinkedIn**: [linkedin.com/in/pratham-raghuvanshi](#)
+**Email**: pratham2262003@gmail.com 
+
+**LinkedIn**: [@Pratham Raghuvanshi](https://www.linkedin.com/in/pratham-raghuvanshi-9b782127b/)
+
 **GitHub**: [@Pratham22R](https://github.com/Pratham22R)
 
 ---
